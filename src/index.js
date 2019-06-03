@@ -11,7 +11,11 @@ import App from './app.vue'
 // Vue.use(Carousel);
 // Vue.use(CarouselItem);
 
-new Vue({
-  el: '#app',
-  render: h => h(App)
+app.linkplugin.getEnvVar(function(env){
+  window.env = env;
+
+  new Vue({
+    el: '#app',
+    render: h => h(App)
+  })
 })

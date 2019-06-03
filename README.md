@@ -23,8 +23,6 @@ npm run build
 ## 工程结构
 ```
 asset：全局资源。
-module：模块代码。
-util：工具类。
 ```
 
 ## package.json

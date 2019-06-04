@@ -1,8 +1,8 @@
 <template>
   <div class="rec-files">
     <div class="header">
-      <span class="title">最近使用文档</span>
-      <span class="more">更多</span>
+      <span class="title">{{i18n.RecentlyUsedFile}}</span>
+      <span class="more" @click="toMore()">{{i18n.More}}</span>
     </div>
     <div class="content clearfloat" v-bind:style="{height: contentHeight}">
       <div class="item" v-for="(item, $index) in files" :key="item">
@@ -21,6 +21,7 @@ import apiSer from 'ser/api'
 export default {
   data () {
     return {
+      i18n: window.i18n,
       //限制显示行数
       limitRowsNum: 2,
       //每行高度
@@ -49,6 +50,9 @@ export default {
         previewAvailable: row.preview.available,
         wopiSupport: row.preview.wopiSupport
       })
+    },
+    toMore(){
+      app.linkplugin.jumpToDiskView();
     }
   }
 }

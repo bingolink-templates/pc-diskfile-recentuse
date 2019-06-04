@@ -24,6 +24,7 @@ body{
 }
 
 .content{
+    position: relative;
     overflow: hidden;
 }
 
@@ -57,5 +58,20 @@ body{
         -webkit-line-clamp: 2;
         overflow: hidden;
         word-break: break-all;
+    }
+}
+
+.error-info{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    img{
+        width: 24px;
+        vertical-align: text-bottom;
+    }
+    span{
+        font-size: 12px;
+        cursor: pointer;
     }
 }

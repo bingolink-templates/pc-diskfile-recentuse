@@ -15,7 +15,7 @@ var fileImageTypes = {
 var fileImages = {};
 var fileTypeImages = {};
 for(var fext in fileImageTypes){
-    fileImages[fext] = 'static/FileImages/' + fext + '.png';
+    fileImages[fext] = 'static/fileImages/' + fext + '.png';
     var arr = fileImageTypes[fext];
     if(arr.length > 0){
         for(var i = 0; i < arr.length; i++){
@@ -49,11 +49,11 @@ module.exports = {
                     success(files);
                 } catch(e){
                     console.log(e);
-                    error('数据异常');
+                    error(window.i18n.ErrorData);
                 }
             },
             error: function(){
-                error('数据加载异常');
+                error(window.i18n.ErrorLoadData);
             }
         })
     }

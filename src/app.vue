@@ -10,6 +10,10 @@
           <img class="icon" @click="preview(item)" :src="item.iconPath" />
           <span class="title" :title="item.name">{{item.name}}</span>
         </div>
+      </div>
+      <div class="error-info" v-if="errMsg">
+        <img src="static/styleImages/tea.svg" />
+        <span @click="loadFiles()">{{errMsg}}</span>
       </div>      
     </div>
   </div>
@@ -27,21 +31,27 @@ export default {
       //每行高度
       rowHeight: 70,
       contentHeight: 'auto',
-      files: []
+      files: [],
+      errMsg: ''
     }
   },
   components: {
   },
   created(){
-    apiSer.getRecentUsedFiles((files) => {
-      this.files = files;
-      this.contentHeight = this.limitRowsNum * this.rowHeight + 'px';
-    }, (errMsg) => {
-    });
+    this.contentHeight = this.limitRowsNum * this.rowHeight + 'px';
+    this.loadFiles();
   },
   mounted(){
   },
   methods: {
+    loadFiles(){
+      apiSer.getRecentUsedFiles((files) => {
+        this.files = files;
+        this.errMsg = '';
+      }, (errMsg) => {
+        this.errMsg = errMsg;
+      });
+    },
     preview(row){
       app.linkplugin.previewDiskFile({
         fileId: row.id,

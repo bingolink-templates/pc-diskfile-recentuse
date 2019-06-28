@@ -59,7 +59,8 @@ export default {
         fileName: row.name,
         fileExt: row.extension,
         previewAvailable: row.preview.available,
-        wopiSupport: row.preview.wopiSupport
+        wopiSupport: row.preview.wopiSupport,
+        canPreview: row.type == 'F'
       })
     },
     toMore(){

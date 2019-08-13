@@ -41,6 +41,9 @@ export default {
   created(){
     this.contentHeight = this.limitRowsNum * this.rowHeight + 'px';
     this.loadFiles();
+    app.linkplugin.listenRefreshWidgetData(() => {
+      this.loadFiles();
+    });
   },
   mounted(){
   },

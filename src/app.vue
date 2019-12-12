@@ -28,9 +28,9 @@ export default {
     return {
       i18n: window.i18n,
       //限制显示行数
-      limitRowsNum: 2,
+      limitRowsNum: 4,
       //每行高度
-      rowHeight: 70,
+      rowHeight: 44,
       contentHeight: 'auto',
       files: [],
       errMsg: ''
@@ -67,7 +67,7 @@ export default {
       })
     },
     toMore(){
-      app.linkplugin.jumpToDiskView();
+      app.linkplugin.jumpToDiskView(['RNODE_RECENTLYUSED']);
     }
   }
 }
